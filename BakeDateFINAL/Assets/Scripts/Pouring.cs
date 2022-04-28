@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Pouring : MonoBehaviour
 {
@@ -17,37 +17,21 @@ public class Pouring : MonoBehaviour
 
     Vector3 oldRotation;
 
-    GenericXRController inputActions;
 
     private void Awake()
     {
-        inputActions = new GenericXRController();
-        inputActions.Enable();
+  
     }
 
     void Start()
     {
-        SteamVR_Actions.default_GrabPinch.AddOnStateDownListener(TriggerPressed, SteamVR_Input_Sources.Any);
-        oldRotation = GameObject.transform.rotation.eulerAngles;
+
     }
 
-    foreach (var device in inputDevices)
+    private void TriggerPressed()
     {
-        Debug.Log(string.Format("Device found with name '{0}' and role '{1}'", device.name, device.role.ToString()));
-    }
-
-    private void TriggerPressed(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
-    {
-
-        if(oldRotation == GameObject.transform.rotation.eulerAngles)
-        {
-            // no change
-        }
-        else
-        {
-            oldRotation = GameObject.transform.rotation.eulerAngles;
-            pourEffect = Instantiate(pourEffect, transform.position, transform.rotation);
-        }
+        pourEffect = Instantiate(pourEffect, transform.position, transform.rotation);
+        
     }
 
     public void smallMilkPouring()
