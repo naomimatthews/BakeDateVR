@@ -510,7 +510,7 @@ MonoBehaviour:
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 139053474}
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_TrackPosition: 1
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 5
@@ -577,6 +577,7 @@ MonoBehaviour:
   milk: {fileID: 139053471}
   pourEffect: {fileID: 9036695747678019719, guid: 998115cd7c6636843992a58509e89579,
     type: 3}
+  pourPoint: {fileID: 1232886243}
 --- !u!64 &139053476
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1843,6 +1844,7 @@ MonoBehaviour:
   milk: {fileID: 493844468}
   pourEffect: {fileID: 9036695747678019719, guid: 998115cd7c6636843992a58509e89579,
     type: 3}
+  pourPoint: {fileID: 1887157600}
 --- !u!114 &493844472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1887,7 +1889,7 @@ MonoBehaviour:
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 493844469}
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_TrackPosition: 1
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 5
@@ -1997,7 +1999,7 @@ MonoBehaviour:
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 511290285}
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_TrackPosition: 1
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 5
@@ -2064,6 +2066,7 @@ MonoBehaviour:
   milk: {fileID: 511290282}
   pourEffect: {fileID: 9036695747678019719, guid: 998115cd7c6636843992a58509e89579,
     type: 3}
+  pourPoint: {fileID: 511290285}
 --- !u!64 &511290287
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8171,6 +8174,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.769519, y: 0.19946504, z: 0.2618879}
   m_Center: {x: -0.00018155575, y: 0.86386204, z: 0.13513786}
+--- !u!1 &1017043499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017043500}
+  m_Layer: 6
+  m_Name: PourPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1017043500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017043499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.249, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 511290285}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1031525073
 GameObject:
   m_ObjectHideFlags: 0
@@ -8889,6 +8922,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FadeSpeed: 2.2
   m_MeshRenderer: {fileID: 1192499699}
+--- !u!1 &1232886242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232886243}
+  m_Layer: 6
+  m_Name: PourPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1232886243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232886242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.448, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 139053474}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250521093 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d505c315b9fde4342bbeb90034f62784,
@@ -10552,6 +10615,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 765692888465b48fface3b65045b34ea, type: 3}
+--- !u!1 &1887157599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1887157600}
+  m_Layer: 6
+  m_Name: PourPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1887157600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887157599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.197, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493844469}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1918352382
 GameObject:
   m_ObjectHideFlags: 0
