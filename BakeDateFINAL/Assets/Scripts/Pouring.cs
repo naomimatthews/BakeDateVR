@@ -7,9 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class Pouring : MonoBehaviour
 {
 
-    [SerializeField] public GameObject smallMilk;
-    [SerializeField] public GameObject mediumMilk;
-    [SerializeField] public GameObject bigMilk;
+    [SerializeField] public GameObject milk;
     [SerializeField] public GameObject pourEffect;
 
     bool pouring = false;
@@ -17,18 +15,25 @@ public class Pouring : MonoBehaviour
 
     Vector3 oldRotation;
 
-
-    private void Awake()
-    {
-  
-    }
-
     void Start()
     {
-
+        oldRotation = milk.transform.rotation.eulerAngles;
     }
 
-    private void TriggerPressed()
+    void Update()
+    {
+        if (oldRotation == milk.transform.rotation.eulerAngles)
+        {
+            // no rotation
+        }
+        else
+        {
+            Pour();
+
+        }
+    }
+
+    private void Pour()
     {
         pourEffect = Instantiate(pourEffect, transform.position, transform.rotation);
         
