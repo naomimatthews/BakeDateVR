@@ -9,6 +9,7 @@ public class Pouring : MonoBehaviour
 
     [SerializeField] public GameObject milk;
     [SerializeField] public GameObject pourEffect;
+    [SerializeField] public Transform pourPoint;
 
     bool pouring = false;
     bool triggerValue;
@@ -35,7 +36,7 @@ public class Pouring : MonoBehaviour
 
     private void Pour()
     {
-        pourEffect = Instantiate(pourEffect, transform.position, transform.rotation);
+        pourEffect = Instantiate(pourEffect, pourPoint.position, Quaternion.identity);
         
     }
 
