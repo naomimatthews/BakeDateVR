@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -14,44 +15,47 @@ public class Pouring : MonoBehaviour
     bool pouring = false;
     bool triggerValue;
 
-    Vector3 oldRotation;
+    private float pourTime = 2.0f;
+    private float timer = 0.0f;
+
+    Vector3 rotationEuler;
 
     void Start()
     {
-        oldRotation = milk.transform.rotation.eulerAngles;
+        pourEffect.SetActive(false);
+        rotationEuler = gameObject.transform.localRotation.eulerAngles;
     }
 
     void Update()
     {
-        if (oldRotation == milk.transform.rotation.eulerAngles)
+        if (gameObject.transform.localRotation.eulerAngles.z > 90.0f 
+            || gameObject.transform.localRotation.eulerAngles.z < -90.0f 
+            || gameObject.transform.localRotation.eulerAngles.x > 90.0f 
+            || gameObject.transform.localRotation.eulerAngles.x < -90.0f)
         {
-            // no rotation
+            Pour();
         }
         else
         {
-            Pour();
-
+            pourEffect.SetActive(false);
         }
     }
 
-    private void Pour()
+     void Pour()
     {
-        pourEffect = Instantiate(pourEffect, pourPoint.position, Quaternion.identity);
+        pourEffect.SetActive(true);
+
+        //timer += Time.deltaTime;
+
+        //if (timer > pourTime)
+        //{
+
+        //}
+
+    }
+
+     void OnCollisionEnter(Collision collision)
+     {
         
-    }
-
-    public void smallMilkPouring()
-    {
-    
-    }
-
-    public void mediumMilkPouring()
-    {
-
-    }
-
-    public void bigMilkPouring()
-    {
-
-    }
+     }
 }
