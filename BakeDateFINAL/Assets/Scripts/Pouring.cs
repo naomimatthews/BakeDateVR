@@ -1,45 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Pouring : MonoBehaviour
 {
 
-    [SerializeField] public GameObject smallMilk;
-    [SerializeField] public GameObject mediumMilk;
-    [SerializeField] public GameObject bigMilk;
-    [SerializeField] public GameObject liquid;
+    [SerializeField] public GameObject milk;
+    [SerializeField] public GameObject pourEffect;
+    [SerializeField] public Transform pourPoint;
 
     bool pouring = false;
     bool triggerValue;
 
+    private float pourTime = 2.0f;
+    private float timer = 0.0f;
+
+    Vector3 rotationEuler;
+
     void Start()
     {
-        var gameControllers = new List<UnityEngine.XR.InputDevice>();
-        UnityEngine.XR.InputDevices.GetDevicesWithRole(UnityEngine.XR.InputDeviceRole.GameController.gameControllers);
+        pourEffect.SetActive(false);
+        rotationEuler = gameObject.transform.localRotation.eulerAngles;
+    }
 
-        if (device.TryGetFeatureValue(UnityEngine.XR.CommonUsages.triggerButton, out triggerValue) && triggerValue)
+    void Update()
+    {
+        if (gameObject.transform.localRotation.eulerAngles.z > 90.0f 
+            || gameObject.transform.localRotation.eulerAngles.z < -90.0f 
+            || gameObject.transform.localRotation.eulerAngles.x > 90.0f 
+            || gameObject.transform.localRotation.eulerAngles.x < -90.0f)
         {
-            Debug.Log("Trigger button is pressed!");
-
-            // GameObject newLiquid = Instantiate(liquid, trnsform.down, transform.rotation);
-            //newLiquid.GetComponent<Rigidbody>().AddForce(transform.down, ForceMode.Impulse);
+            Pour();
         }
-
+        else
+        {
+            pourEffect.SetActive(false);
+        }
     }
 
-    public void smallMilkPouring()
+     void Pour()
     {
-    
-    }
+        pourEffect.SetActive(true);
 
-    public void mediumMilkPouring()
-    {
+        //timer += Time.deltaTime;
 
-    }
+        //if (timer > pourTime)
+        //{
 
-    public void bigMilkPouring()
-    {
+        //}
 
     }
+
+     void OnCollisionEnter(Collision collision)
+     {
+        
+     }
 }
